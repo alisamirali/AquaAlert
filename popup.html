@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AquaAlert: Your Hydration Buddy</title>
+    <style>
+        body {
+            width: 200px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>AquaAlert</h2>
+    <p>Time Left: <span id="timeLeft">60:00</span></p>
+    <button id="startReminder">Start Reminder</button>
+    <button id="stopReminder">Stop Reminder</button>
+    <button id="resetReminder">Reset Reminder</button>
+    <button id="closePopup">Close</button>
+    <hr>
+    <label for="intervalChoice">Choose reminder interval:</label>
+    <select id="intervalChoice">
+        <option value="60">60 minutes</option>
+        <option value="45">45 minutes</option>
+        <option value="30">30 minutes</option>
+        <!-- Add other intervals as needed -->
+    </select>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "AquaAlert: Your Hydration Buddy",
+    "version": "1.0",
+    "description": "Stay refreshed in the digital hustle! AquaAlert sends timely reminders, ensuring you drink water regularly throughout the day. Boost your energy and focus with consistent hydration. Dive in!",
+    "icons": {
+      "48": "icon.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "48": "icon.png"
+      }
+    },
+    "permissions": [
+      "alarms",
+      "notifications",
+      "storage"
+    ]  
+}
+  
