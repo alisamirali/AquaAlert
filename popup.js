@@ -103,7 +103,7 @@ function updateDisplayFromStorage() {
       } else if (data.reminderPaused) {
         updateDisplay(data.endTime); // Show paused time without starting countdown
       } else {
-        const intervalToShow = data.chosenInterval || "60";
+        const intervalToShow = data.chosenInterval || "90";
         document.getElementById("intervalChoice").value = intervalToShow;
         document.getElementById("timeLeft").innerText = `${intervalToShow}:00`;
       }

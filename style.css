@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600&display=swap");
+
+:root {
+  /* --arrow-bg: rgba(255, 255, 255, 0.3); */
+  --arrow-bg: #2c8fa1;
+  --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+  --option-bg: white;
+  --select-bg: #2c8fa1;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+*/
+body {
+  width: 450px;
+  height: 365px;
+  line-height: 1.5;
+  font-family: "Cairo", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #266cb8;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding: 1rem;
+  border: none;
+  outline: none;
+}
+
+/*
+    5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+    6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+    7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+  overflow-wrap: break-word;
+  color: #ffffff;
+}
+
+/*
+    8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*
+    9. Custom Reset
+*/
+button {
+  outline: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 0.3rem 1.3rem;
+  color: #f2fbff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  border-radius: 1rem;
+}
+
+button:hover {
+  background-color: transparent !important;
+  border-color: #f2fbff;
+}
+
+header {
+  position: relative;
+  border-bottom: 1px solid #f2fbff;
+  padding-bottom: 0.5rem;
+}
+
+#closePopup {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.description {
+  color: #f2fbff;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 18px;
+  border-bottom: 1px solid #f2fbff;
+  padding-bottom: 1rem;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+#timeLeft {
+  font-size: 3rem;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+#startReminder,
+#stopReminder {
+  background-color: #2c8fa1;
+}
+
+#resetReminder {
+  background-color: #b50d26;
+}
+
+#closePopup {
+  background-color: transparent;
+  padding: 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+footer {
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+select {
+  appearance: none;
+  border: 0;
+  outline: 0;
+  width: 150px;
+  padding: 0.5rem;
+  background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+    linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+  color: white;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  /* Remove IE arrow */
+  &::-ms-expand {
+    display: none;
+  }
+
+  /* Remove focus outline */
+  &:focus {
+    outline: none;
+  }
+}
+
+option {
+  font-size: 1rem !important;
+  background-color: var(--option-bg);
+}
