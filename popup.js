@@ -1,9 +1,6 @@
 // Global variable to hold the interval reference for the countdown
 let countdownInterval;
 
-// Variable to track when the reminder was paused
-let pausedAt = null;
-
 // Initialize when the popup's DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
   // Update the displayed timer and set the stored choice when the popup is opened
@@ -41,17 +38,19 @@ function startWaterReminder() {
   );
 
   let endTime;
-  if (pausedAt) {
-    // Adjust the endTime based on how long the timer was paused
-    const timePaused = new Date().getTime() - pausedAt;
-    chrome.storage.local.get("endTime", function (data) {
-      endTime = data.endTime + timePaused;
+  chrome.storage.local.get(
+    ["endTime", "reminderPaused", "pausedAt"],
+    function (data) {
+      if (data.reminderPaused) {
+        // Adjust the endTime based on how long the timer was paused
+        const timePaused = new Date().getTime() - data.pausedAt;
+        endTime = data.endTime + timePaused;
+      } else {
+        endTime = new Date().getTime() + chosenInterval * 60 * 1000;
+      }
       setReminder(endTime, chosenInterval);
-    });
-  } else {
-    endTime = new Date().getTime() + chosenInterval * 60 * 1000;
-    setReminder(endTime, chosenInterval);
-  }
+    }
+  );
 }
 
 function setReminder(endTime, chosenInterval) {
@@ -60,6 +59,7 @@ function setReminder(endTime, chosenInterval) {
     endTime: endTime,
     chosenInterval: chosenInterval,
     reminderPaused: false,
+    pausedAt: null, // Reset the pausedAt variable
   });
   updateDisplayFromStorage();
 }
@@ -69,22 +69,25 @@ function stopWaterReminder() {
   clearInterval(countdownInterval);
 
   // Mark the current time the reminder was paused
-  pausedAt = new Date().getTime();
+  const pausedAt = new Date().getTime();
 
-  chrome.storage.local.set({ reminderPaused: true });
+  chrome.storage.local.set({
+    reminderPaused: true,
+    pausedAt: pausedAt,
+  });
 }
 
 function resetWaterReminder() {
   chrome.alarms.clear("drinkWater");
   clearInterval(countdownInterval);
-  pausedAt = null; // Reset the pausedAt variable
 
   const chosenInterval = document.getElementById("intervalChoice").value;
   document.getElementById("timeLeft").innerText = `${chosenInterval}:00`;
 
   // Update the stored values to reflect the reset
   chrome.storage.local.set({
-    reminderStopped: true,
+    reminderPaused: false, // Ensure the reminder is not paused
+    pausedAt: null, // Clear the pausedAt value
     chosenInterval: chosenInterval,
   });
 }
@@ -93,7 +96,7 @@ function updateDisplayFromStorage() {
   clearInterval(countdownInterval);
 
   chrome.storage.local.get(
-    ["endTime", "chosenInterval", "reminderPaused"],
+    ["endTime", "chosenInterval", "reminderPaused", "pausedAt"],
     function (data) {
       if (data.endTime && !data.reminderPaused) {
         updateDisplay(data.endTime);

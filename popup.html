@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>AquaAlert: Your Hydration Buddy</title>
     <meta name="title" content="Meta Tags — Preview, Edit and Generate" />
-    <meta name="description"
-        content="Stay refreshed in the digital hustle! AquaAlert sends timely reminders, ensuring you drink water regularly throughout the day. Boost your energy and focus with consistent hydration. Dive in!" />
-    <meta name="keywords" content="JavaScript, Chrome Extension, Water Drink Reminder">
-    <meta name="robots" content="noindex, nofollow">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="language" content="English">
-    <meta name="author" content="Ali Samir">
+    <meta
+      name="description"
+      content="Stay refreshed in the digital hustle! AquaAlert sends timely reminders, ensuring you drink water regularly throughout the day. Boost your energy and focus with consistent hydration. Dive in!"
+    />
+    <meta
+      name="keywords"
+      content="JavaScript, Chrome Extension, Water Drink Reminder"
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Ali Samir" />
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <h2 class="title">AquaAlert</h2>
-        <p class="description">
-            Stay energized in the digital grind! AquaAlert reminds you to hydrate regularly. Boost focus and vitality.
-            Dive in!
-        </p>
+      <h2 class="title">AquaAlert</h2>
+      <p class="description">
+        Stay energized in the digital grind! AquaAlert reminds you to hydrate
+        regularly. Boost focus and vitality. Dive in!
+      </p>
 
-        <button id="closePopup">X</button>
+      <button id="closePopup">X</button>
     </header>
 
     <main>
-        <h2 class="time">
-            <p id="timeLeft">60:00</p>
-            Time Left
-        </h2>
-        <div class="actions">
-            <button id="startReminder">Start</button>
-            <button id="stopReminder">Pause</button>
-            <button id="resetReminder">Reset</button>
-        </div>
+      <h2 class="time">
+        <p id="timeLeft">60:00</p>
+        Time Left
+      </h2>
+      <div class="actions">
+        <button id="startReminder">Start</button>
+        <button id="stopReminder">Pause</button>
+        <button id="resetReminder">Reset</button>
+      </div>
     </main>
 
     <footer>
-        <label for="intervalChoice">Choose reminder interval:</label>
-        <select id="intervalChoice">
-            <option value="90">90 minutes</option>
-            <option value="60">60 minutes</option>
-            <option value="45">45 minutes</option>
-            <option value="30">30 minutes</option>
-            <!-- Add other intervals as needed -->
-        </select>
+      <label for="intervalChoice">Choose reminder interval:</label>
+      <select id="intervalChoice">
+        <option value="90">90 minutes</option>
+        <option value="75">75 minutes</option>
+        <option value="60">60 minutes</option>
+        <option value="45">45 minutes</option>
+        <option value="30">30 minutes</option>
+        <option value="15">15 minutes</option>
+      </select>
     </footer>
 
-
     <script src="popup.js"></script>
-</body>
-
+  </body>
 </html>

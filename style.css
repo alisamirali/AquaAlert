@@ -4,7 +4,7 @@
   /* --arrow-bg: rgba(255, 255, 255, 0.3); */
   --arrow-bg: #2c8fa1;
   --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
-  --option-bg: white;
+  --option-bg: #266cb8;
   --select-bg: #2c8fa1;
 }
 
@@ -181,14 +181,19 @@ main {
 }
 
 footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
 }
 
-label {
-  font-size: 0.9rem;
+footer label {
+  font-size: 1rem;
 }
 
 select {
   appearance: none;
+  flex: 1;
   border: 0;
   outline: 0;
   width: 150px;
